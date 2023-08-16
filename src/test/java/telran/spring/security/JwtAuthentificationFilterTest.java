@@ -68,7 +68,7 @@ class JwtAuthentificationFilterTest {
 				.content(objectMapper.writeValueAsString(loginDataAdminTest))).andDo(print()).andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 		LoginResponse loginResponse = objectMapper.readValue(response, LoginResponse.class);
-		jwtToken = loginResponse.accsessToken();		
+		jwtToken = loginResponse.accessToken();		
 	}
 	
 	@Test
