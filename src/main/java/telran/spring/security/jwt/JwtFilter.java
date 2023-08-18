@@ -44,7 +44,7 @@ public class JwtFilter extends OncePerRequestFilter {
 				SecurityContextHolder.getContext().setAuthentication(authentification);
 				log.trace("Security context is established");
 				} catch (Throwable e) {
-					
+					log.error("Wrong credentials");
 				}
 				
 			}
