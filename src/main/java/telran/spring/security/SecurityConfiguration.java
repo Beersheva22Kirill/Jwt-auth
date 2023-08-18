@@ -20,11 +20,14 @@ public class SecurityConfiguration {
 
 	final JwtFilter jwtFilter;
 	final AuthorizationConfiguration authorizationConfiguration;
+	final SecurityExceptionsHandler securityExceptionsHandler;
 
 	@Bean
 	@Order(5)
 	SecurityFilterChain configure(HttpSecurity http) throws Exception {
 		http.cors(custom -> custom.disable()).csrf(custom -> custom.disable())
+				.exceptionHandling(custom -> custom.accessDeniedHandler(securityExceptionsHandler)
+				.authenticationEntryPoint(securityExceptionsHandler))
 				.authorizeHttpRequests(custom -> custom.requestMatchers("/login").permitAll().requestMatchers(HttpMethod.OPTIONS).permitAll());
 		authorizationConfiguration.configure(http);
 		log.info("Filter with JWToken - configured and loaded");

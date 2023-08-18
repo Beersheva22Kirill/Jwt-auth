@@ -38,7 +38,7 @@ class AuthorizationConfigurationTest implements AuthorizationConfiguration{
 	
 }
 
-@WebMvcTest({JwtController.class, JwtFilter.class, JwtUtil.class, SecurityConfiguration.class, AccountingConfiguration.class,AuthorizationConfigurationTest.class})
+@WebMvcTest({JwtController.class, JwtFilter.class, JwtUtil.class, SecurityConfiguration.class, AccountingConfiguration.class,AuthorizationConfigurationTest.class,SecurityExceptionsHandler.class})
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class JwtAuthentificationFilterTest {
 
